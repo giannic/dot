@@ -1,0 +1,10 @@
+PS1="\[\033[1;30m\w\]\n\`if [ \$? = 0 ]; then echo \[\e[36m\]^^\[\e[0m\]; else echo \[\e[31m\]\>\<\[\e[0m\]; fi\` "
+alias ls='ls -G'
+alias chrome='open -a /Applications/Google\ Chrome\ Canary.app'
+alias safari='open -a /Applications/Safari.app'
+alias mplayer='open -a /Applications/MPlayerX.app'
+alias reminders='open -a /Applications/Reminders.app'
+alias notes='open -a /Applications/Notes.app'
+alias contacts='open -a /Applications/Contacts.app'
+alias calendar='open -a /Applications/Calendar.app'
+alias itunes='open -a /Applications/iTunes.app'
