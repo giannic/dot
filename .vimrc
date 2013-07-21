@@ -1,33 +1,100 @@
-colors gcolor " my color scheme ~/.vim/colors/
+set nocompatible " be iMproved
+syntax enable
+filetype off
+filetype indent plugin on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Syntastic'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'lunaru/vim-less'
+Bundle 'altercation/vim-colors-solarized'
+
+" colors gcolor " my color scheme ~/.vim/colors/
+set background=dark
+colorscheme solarized
+set encoding=utf-8
+set t_Co=256
 set noerrorbells " silent
+set undolevels=50
+set t_vb=
+set lazyredraw
 
-" encoding
-set fenc=utf-8 " default utf-8 encoding for existing files
-setglobal fenc=utf-8 " default utf8 encoding for new files
+set wildmenu
+set wildignore=*.o,*~,*.pyc
 
-" spellcheck
-set spelllang=en " language
-autocmd FileType tex setlocal spell " tex files
-autocmd BufNewFile,BufRead *.txt setlocal spell " txt files
+" SPELLCHECK
+if (v:version >= 700)
+    set spelllang=en
+    autocmd FileType tex set spell " tex
+    autocmd BufNewFile,BufRead *.txt set spell " txt
+endif
 
-" search
-set ic " ignore case in search
-set is " incremental search
+" SEARCH
+set ignorecase
+set hlsearch
+set incsearch
 
-" heads up display
-set cul " highlight current line
-set cc=80 " color column 80
-set ru " display line and column numbers
+" HEADSUP DISPLAY
+set number
+set ruler
+set cursorline " highlight current line
+set colorcolumn=80
 
-" whitespace
-set ai si " autoindent and smartindent
-set ts=4 sw=4 et " tabstop 4 spaces
-match Alert /\s\+$\|\t/
+" WHITESPACE
+set autoindent
+set smartindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+" set cinoptions=>2s
 
-" backup
-set backup " must mkdir manually
+" Highlight tabs and trailing whitespace
+" match Alert /\s\+$\|\t/
+
+" AUTOCOMPLETE MENU
+set wildmenu
+set wildignore=*.o,*.pyc,*.bak,*.jpg,*.jpeg,*.png,*.gif,*.class
+set wildmode=list:full
+
+" CODE FOLDING
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+
+" RESIZE SPLITS UNIFORMLY
+au VimResized * exe "normal! \<c-w>="
+
+" BACKUP FILES
+set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 
-autocmd FileType make setlocal noet " preserve tabs in Makefile
-syntax on
+" FILETYPES
+autocmd FileType make set noexpandtab
+autocmd BufNewFile,BufRead *.c set cindent
+autocmd BufNewFile,BufRead *.cc set cindent
+autocmd BufNewFile,BufRead *.cxx set cindent
+autocmd BufNewFile,BufRead *.h set cindent
+
+" TAGLIST PLUGIN
+" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" let Tlist_Exit_OnlyWindow = 1
+" let Tlist_GainFocus_On_ToggleOpen = 1
+
+" CTRLP
+let g:ctrlp_map = '<Leader>]'
+set wildignore+=*/tmp/*,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" KEY MAPS
+map j gj
+map k gk
+
+" FILETYPE SETTINGS
+autocmd BufNewFile,BufRead *.less setfiletype less
+autocmd Filetype less setlocal ts=2 sts=2 sw=2 et
