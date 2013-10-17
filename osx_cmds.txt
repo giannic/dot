@@ -1,0 +1,53 @@
+# launching application
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# expose
+defaults write com.apple.dock expose-animation-duration -int 0; killall Dock
+
+# launchpad
+defaults write com.apple.dock springboard-show-duration -int 0
+defaults write com.apple.dock springboard-hide-duration -int 0
+
+# resizing sheets, preference windows, etc
+defaults write -g NSWindowResizeTime -float 0.001
+
+# Quick look windows
+defaults write -g QLPanelAnimationDuration -float 0
+
+# resizing windows before and after showing the version browser
+# also disabled by NSWindowResizeTime -float 0.001
+defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
+
+# toolbar or menu bar in full screen
+defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+
+# disable standard finder animations
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# don't animate launching of app
+defaults write com.apple.dock launchanim -bool false
+
+# disable accent characters
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# set a fast keyboar repeeat rate (NOTE: NOT TESTED)
+defaults write NSGlobalDomain KeyRepeat -int 0.02
+
+# only use utf8 in terminal
+defaults write com.apple.terminal StringEncodings -array 4
+
+# avoid creating .DS_Store on Network volumes
+defaults irite com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# show remaining time, hide percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+defaults write com.apple.menuextra.battery ShowTime -string "YES"
+
+# disable journaling, recommended for SSDs
+diskutil disableJournal /Volumes/OSX
+
+# disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# increase window resize speed
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
