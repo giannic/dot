@@ -1,3 +1,6 @@
+# Disable sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
 # Hide finder from cmd + tab menu
 sudo vi /System/Library/CoreServices/Finder.app/Contents/Info.plist
 Insert the following under the dict right under plist tag
@@ -20,7 +23,7 @@ defaults write com.apple.dock expose-animation-duration -int 0; killall Dock
 defaults write com.apple.dock springboard-show-duration -int 0
 defaults write com.apple.dock springboard-hide-duration -int 0
 
-# resizing sheets, preference windows, etc
+# faster resizing sheets, preference windows, etc
 defaults write -g NSWindowResizeTime -float 0.001
 
 # Quick look windows
@@ -64,5 +67,53 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # increase window resize speed
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
+# Disable Resume system-wide
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+# Enable subpixel font rendering on non-Apple LCDs
+defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+# Enable 2D Dock
+defaults write com.apple.dock no-glass -bool true
+
+# Reset Launchpad
+find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Enable the debug menu in Address Book
+defaults write com.apple.addressbook ABShowDebugMenu -bool true
+
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+###############################################################################
+## Mac App Store                                                               #
+################################################################################
+
+# Enable the WebKit Developer Tools in the Mac App Store
+defaults write com.apple.appstore WebKitDeveloperExtras -bool true
+
+# Enable Debug Menu in the Mac App Store
+defaults write com.apple.appstore ShowDebugMenu -bool true
+
+###############################################################################
+## Kill affected applications                                                  #
+################################################################################
+
+for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
+           "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" "Terminal" \
+           "Transmission" "Twitter" "iCal" "iTunes";
+do
+    killall "$app" > /dev/null 2>&1
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
+
 # install homebrew
 # ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
