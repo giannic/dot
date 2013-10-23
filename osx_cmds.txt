@@ -1,3 +1,15 @@
+# Hide finder from cmd + tab menu
+sudo vi /System/Library/CoreServices/Finder.app/Contents/Info.plist
+Insert the following under the dict right under plist tag
+<key>LSUIElement</key>                                                      
+<string>1</string>
+
+# disable spotlight
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+sudo mdutil -a -i off
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+killall SystemUIServer
+
 # launching application
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
@@ -51,3 +63,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 
 # increase window resize speed
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# install homebrew
+# ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
