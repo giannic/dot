@@ -14,5 +14,8 @@
     interactive = auto
     status = auto
 
+[push]
+    default = current
+
 [rerere]
 	enabled = true
