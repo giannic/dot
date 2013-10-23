@@ -94,7 +94,9 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " KEY MAPS
 map j gj
 map k gk
+imap jj <Esc>
+
 
 " FILETYPE SETTINGS
 autocmd BufNewFile,BufRead *.less setfiletype less
-autocmd Filetype less setlocal ts=2 sts=2 sw=2 et
+autocmd Filetype js,css,less,html setlocal ts=2 sts=2 sw=2 et
