@@ -1,0 +1,18 @@
+[user]
+	name = gianni
+	email = giannikchen@gmail.com
+
+[alias]
+    b = branch
+    c = commit
+    cm = commit -m 
+
+[color]
+	ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+
+[rerere]
+	enabled = true
