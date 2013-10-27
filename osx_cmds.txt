@@ -16,6 +16,10 @@ killall SystemUIServer
 # launching application
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 
+# Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.Dock autohide-delay -float 0
+
 # expose
 defaults write com.apple.dock expose-animation-duration -int 0; killall Dock
 

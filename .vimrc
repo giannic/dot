@@ -22,6 +22,8 @@ set noerrorbells " silent
 set undolevels=50
 set t_vb=
 set lazyredraw
+set binary
+set noeol
 
 set wildmenu
 set wildignore=*.o,*~,*.pyc
