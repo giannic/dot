@@ -24,6 +24,7 @@ set t_vb=
 set lazyredraw
 set binary
 set noeol
+set title
 
 set wildmenu
 set wildignore=*.o,*~,*.pyc
@@ -56,7 +57,8 @@ set expandtab
 " set cinoptions=>2s
 
 " Highlight tabs and trailing whitespace
-" match Alert /\s\+$\|\t/
+highlight Alert ctermbg=red guibg=red
+match Alert /\s\+$\|\t/
 
 " AUTOCOMPLETE MENU
 set wildmenu
