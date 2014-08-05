@@ -1,13 +1,12 @@
 set nocompatible " be iMproved
 filetype indent plugin off
 
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=$GOROOT/misc/vim
-
-filetype indent plugin on
 syntax on
 
-call vundle#rc()
+" protect vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'Syntastic'
@@ -15,6 +14,10 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'lunaru/vim-less'
 Bundle 'altercation/vim-colors-solarized'
+
+call vundle#end()
+filetype indent plugin on
+" protect vundle
 
 " colors gcolor " my color scheme ~/.vim/colors/
 set background=dark

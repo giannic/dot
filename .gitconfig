@@ -6,6 +6,8 @@
     b = branch
     c = commit
     cm = commit -m
+    d = diff
+    s = status
 
 [color]
     ui = true
