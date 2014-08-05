@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Directories
+mkdir -p ~/.vim/backup ~/.vim/bundle ~/.vim/syntax ~/.vim/tmp
+mkdir -p ~/.atom
+
+# Soft links
+ln -s ./.bashrc ~/.bashrc
+ln -s ./.bash_profile ~/.bash_profile
+ln -s ./.ssh ~/.ssh
+ln -s ./.vimrc ~/.vimrc
+ln -s ./.emacs ~/.emacs
+ln -s ./.gitconfig ~/.gitconfig
+ln -s ./.cloudup.json ~/.cloudup.json
+ln -s ./powerline-shell.py ~/.powerline-shell.py
+ln -s ./.atom/.config.cson ~/.atom/.config.cson
+
+touch ~/.hushlogin

@@ -1,10 +1,9 @@
-export PATH=$HOME/Developer/local/bin:$PATH
-
-PS1="\[\033[1;30m\w\]\n\`if [ \$? = 0 ]; then echo \[\e[36m\]^^\[\e[0m\]; else echo \[\e[31m\]\>\<\[\e[0m\]; fi\` "
+# PS1="\[\033[1;30m\w\]\n\`if [ \$? = 0 ]; then echo \[\e[36m\]^^\[\e[0m\]; else echo \[\e[31m\]\>\<\[\e[0m\]; fi\` "
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 alias sleep="osascript -e 'tell application \"System Events\" to sleep'"
 alias ls='ls -G -F'
 alias eject='diskutil eject'
+alias f='find . -name'
 
 alias safari='open -a /Applications/Safari.app'
 alias firefox='open -a /Applications/FirefoxNightly.app'
@@ -21,15 +20,39 @@ alias word='open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Word.app'
 alias powerpoint='open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Powerpoint.app'
 alias excel='open -a /Applications/Microsoft\ Office\ 2011/Microsoft\ Excel.app'
 alias vlc='open -a /Applications/VLC.app'
+alias s='subl'
+alias v='vi'
 
-alias coffee='/Users/gianni/upenn/spring2013/fnar399/profiles/node_modules/coffee-script/bin/coffee'
-alias mongod='/Users/gianni/upenn/spring2013/fnar399/profiles/mongodb/bin/mongod'
-alias mongo='/Users/gianni/upenn/spring2013/fnar399/profiles/mongodb/bin/mongo'
+# git aliases
+alias g='git'
+alias shove='git shove'
+alias amend='git commit --amend'
+alias gm='git commit -m'
+alias pr='git pull-request'
+alias gb='git branch'
+alias stash='git stash'
+alias gs='git status'
+alias checkout='git checkout'
+alias start='git start'
+alias master='git checkout master'
+alias continue='git rebase --continue'
+alias unamend='git reset --soft HEAD@{1}'
 
-#Adobe Font Deveoplment Kit
-FDK_EXE="/Users/i/bin/FDK/Tools/osx"
-PATH=${PATH}:"/Users/i/bin/FDK/Tools/osx"
-export PATH
-export FDK_EXE
+alias \.\.="cd ../"
+alias \.\.\.="cd ../../"
+alias \.\.\.\.="cd ../../../"
 
-export EDITOR="/usr/bin/vim"
+export AWS_ACCESS_KEY=''
+export AWS_SECRET_KEY=''
+
+# git autocomplete
+if [ -f ~/.git-completion.bash ]; then
+      . ~/.git-completion.bash
+fi
+
+# powerline shell
+function _update_ps1() {
+   export PS1="$(~/.powerline-shell.py --mode compatible $? 2> /dev/null)"
+}
+
+export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
