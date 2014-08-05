@@ -16,3 +16,6 @@ ln -s ./powerline-shell.py ~/.powerline-shell.py
 ln -s ./.atom/.config.cson ~/.atom/.config.cson
 
 touch ~/.hushlogin
+
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
