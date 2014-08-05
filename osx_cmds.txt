@@ -4,7 +4,7 @@ sudo nvram SystemAudioVolume=" "
 # Hide finder from cmd + tab menu
 sudo vi /System/Library/CoreServices/Finder.app/Contents/Info.plist
 Insert the following under the dict right under plist tag
-<key>LSUIElement</key>                                                      
+<key>LSUIElement</key>
 <string>1</string>
 
 # disable spotlight

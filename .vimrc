@@ -1,9 +1,12 @@
 set nocompatible " be iMproved
-syntax enable
-filetype off
-filetype indent plugin on
+filetype indent plugin off
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=$GOROOT/misc/vim
+
+filetype indent plugin on
+syntax on
+
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -84,6 +87,7 @@ autocmd BufNewFile,BufRead *.c set cindent
 autocmd BufNewFile,BufRead *.cc set cindent
 autocmd BufNewFile,BufRead *.cxx set cindent
 autocmd BufNewFile,BufRead *.h set cindent
+au BufRead,BufNewFile *.go set filetype=go
 
 " TAGLIST PLUGIN
 " let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
@@ -93,7 +97,7 @@ autocmd BufNewFile,BufRead *.h set cindent
 " CTRLP
 let g:ctrlp_map = '<Leader>]'
 set wildignore+=*/tmp/*,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = 'tmp$\|out$\|node_modules$\|\v[\/]\.(git|hg|svn)$'
 
 " KEY MAPS
 map j gj
@@ -103,4 +107,4 @@ imap jj <Esc>
 
 " FILETYPE SETTINGS
 autocmd BufNewFile,BufRead *.less setfiletype less
-autocmd Filetype js,css,less,html setlocal ts=2 sts=2 sw=2 et
+autocmd Filetype js,css,less,html,sh setlocal ts=2 sts=2 sw=2 et
