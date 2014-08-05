@@ -13,7 +13,7 @@ ln -s $(pwd)/.emacs ~/.emacs
 ln -s $(pwd)/.gitconfig ~/.gitconfig
 ln -s $(pwd)/.cloudup.json ~/.cloudup.json
 ln -s $(pwd)/powerline-shell.py ~/.powerline-shell.py
-ln -s $(pwd)/.atom/.config.cson ~/.atom/.config.cson
+ln -s $(pwd)/.atom/config.cson ~/.atom/config.cson
 
 touch ~/.hushlogin
 
