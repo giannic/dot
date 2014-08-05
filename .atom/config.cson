@@ -1,0 +1,35 @@
+'editor':
+  'fontSize': 13
+'core':
+  'audioBeep': false
+  'projectHome': '/Users/giannichen/src'
+  'disabledPackages': [
+    'background-tips'
+    'autosave'
+    'bookmarks'
+    'exception-reporting'
+    'feedback'
+    'image-view'
+    'language-coffee-script'
+    'link'
+    'metrics'
+    'release-notes'
+    'spell-check'
+    'styleguide'
+    'timecop'
+    'welcome'
+  ]
+  'themes': [
+    'atom-dark-ui'
+    'solarized-dark-syntax'
+  ]
+'exception-reporting':
+  'userId': '77a47fbe-125e-2b3e-d553-effbfaed3432'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '0480177d3818ea6fb180730874f72fabaf9d3cae'
+'git-diff':
+  'showIconsInEditorGutter': true
+'whitespace':
+  'ignoreWhitespaceOnCurrentLine': false
