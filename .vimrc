@@ -13,7 +13,7 @@ Bundle 'Syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'lunaru/vim-less'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
 
 call vundle#end()
 filetype indent plugin on
@@ -21,7 +21,7 @@ filetype indent plugin on
 
 " colors gcolor " my color scheme ~/.vim/colors/
 set background=dark
-colorscheme solarized
+colorscheme molokai
 set encoding=utf-8
 set t_Co=256
 set noerrorbells " silent
